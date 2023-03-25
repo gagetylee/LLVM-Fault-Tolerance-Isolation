@@ -1,0 +1,6 @@
+{
+  // Adapted from Viet Nguyen's file
+  "name": "Ubuntu Codespace",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/base:jammy"
+}

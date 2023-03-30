@@ -23,11 +23,14 @@ enum class AnalysisType {
 
 struct Tolerator : public llvm::ModulePass {
   static char ID;
+  AnalysisType analysisType;
 
-  Tolerator(AnalysisType analysisType) : llvm::ModulePass(ID) {}
+  Tolerator(AnalysisType analysisType) : llvm::ModulePass(ID), analysisType(analysisType) {}
 
   bool runOnModule(llvm::Module& m) override;
 
+  void handleDivision(std::vector<llvm::Instruction*> &divisionList, llvm::FunctionCallee customFunction, int analysisType);
+  void handleMemoryAllocation(std::vector<llvm::Instruction*> &allocationList, llvm::FunctionCallee customFunction, int analysisType);
 };
 
 
